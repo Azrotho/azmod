@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item SAPPHIRE = registerItem("sapphire", new Item(new Item.Settings()));
+    public static final Item ENDER_SWORD = registerItem("ender_sword", new Item(new Item.Settings()));
 
     private static void addItemsToIngredientTabItemsGroup(FabricItemGroupEntries entries) {
         entries.add(SAPPHIRE);
@@ -22,7 +23,6 @@ public class ModItems {
 
     public static void registerModItems() {
         AzMod.LOGGER.info("Registering AzMod items...");
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientTabItemsGroup);
     }
 }

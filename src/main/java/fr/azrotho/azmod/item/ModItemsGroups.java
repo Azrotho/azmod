@@ -16,6 +16,7 @@ public class ModItemsGroups {
         FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModItems.SAPPHIRE)).entries((displayContext, entries) -> {
                 entries.add(ModItems.SAPPHIRE);
+                entries.add(ModItems.ENDER_SWORD);
             })
             .displayName(Text.translatable("itemGroup.azmod_items"))
             .build()
