@@ -35,7 +35,7 @@ public class HookProjectileEntity extends ThrownItemEntity {
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         if(!this.getWorld().isClient()) {
-            this.getOwner().teleport(blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY(), blockHitResult.getBlockPos().getZ());
+            this.getOwner().teleport(blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY() + 1, blockHitResult.getBlockPos().getZ());
             this.getWorld().sendEntityStatus(this, (byte) 3);
         }
         this.discard();

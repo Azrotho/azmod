@@ -28,7 +28,7 @@ public class GrapplingHookItem extends Item {
             world.spawnEntity(hook);
         }
 
-        itemStack.decrement(1);
+        itemStack.damage(1, player, (p) -> p.sendToolBreakStatus(hand));
 
         return TypedActionResult.success(player.getStackInHand(hand));
     }
