@@ -1,6 +1,7 @@
 package fr.azrotho.azmod.item;
 
 import fr.azrotho.azmod.AzMod;
+import fr.azrotho.azmod.item.custom.DiamondMagnetItem;
 import fr.azrotho.azmod.item.custom.EnderSwordItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -13,6 +14,7 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item SAPPHIRE = registerItem("sapphire", new Item(new Item.Settings()));
     public static final Item ENDER_SWORD = registerItem("ender_sword", new EnderSwordItem(ModToolMaterial.ENDER, 8, 1.6f, new Item.Settings().maxDamage(1000)));
+    public static final Item DIAMOND_MAGNET = registerItem("diamond_magnet", new DiamondMagnetItem(new Item.Settings().maxDamage(500)));
 
     private static void addItemsToIngredientTabItemsGroup(FabricItemGroupEntries entries) {
         entries.add(SAPPHIRE);

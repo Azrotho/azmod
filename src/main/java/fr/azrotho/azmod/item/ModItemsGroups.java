@@ -17,6 +17,7 @@ public class ModItemsGroups {
             .icon(() -> new ItemStack(ModItems.SAPPHIRE)).entries((displayContext, entries) -> {
                 entries.add(ModItems.SAPPHIRE);
                 entries.add(ModItems.ENDER_SWORD);
+                entries.add(ModItems.DIAMOND_MAGNET);
             })
             .displayName(Text.translatable("itemGroup.azmod_items"))
             .build()
