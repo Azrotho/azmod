@@ -18,6 +18,7 @@ public class ModItemsGroups {
                 entries.add(ModItems.SAPPHIRE);
                 entries.add(ModItems.ENDER_SWORD);
                 entries.add(ModItems.DIAMOND_MAGNET);
+                entries.add(ModItems.GRAPPLING_HOOK);
             })
             .displayName(Text.translatable("itemGroup.azmod_items"))
             .build()
