@@ -1,3 +1,4 @@
 {
-    "item.azmod.sapphire": "§bSapphire"
+    "item.azmod.sapphire": "§bSapphire",
+    "itemGroup.azmod_items": "AzMod"
 }

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.azrotho.azmod.item.ModItems;
+import fr.azrotho.azmod.item.ModItemsGroups;
 
 public class AzMod implements ModInitializer {
 	public static final String MODID = "azmod";
@@ -14,6 +15,7 @@ public class AzMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing AzMod...");
+		ModItemsGroups.registerModItemsGroups();
 		ModItems.registerModItems();
 	}
 }
