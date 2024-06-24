@@ -1,9 +1,9 @@
-# Fabric Example Mod
+# AzMod
+
+## Introduction
+
+Ceci est le mod qui a été crée à partir des idées des gens dans ma vidéo (lien pas disponible)
 
 ## Setup
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Mettez le mod dans le dossier mod de votre fabric en 1.20.4
