@@ -40,7 +40,7 @@ public class HookProjectileEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         super.tick();
-        
+
         if(tick == -1) {
             return;
         }
@@ -89,7 +89,7 @@ public class HookProjectileEntity extends ThrownItemEntity {
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        if(!this.getWorld().isClient() && !this.getCustomName().equals("hited")) {
+        if(!this.getWorld().isClient() && !this.getCustomName().equals(Text.of("hited"))) {
             //this.getOwner().teleport(blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY() + 1, blockHitResult.getBlockPos().getZ());
             this.setVelocity(0, 0, 0);
             this.setNoGravity(true);
