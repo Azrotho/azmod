@@ -28,9 +28,9 @@ public class GrapplingHookItem extends Item {
             HookProjectileEntity hook = new HookProjectileEntity(player, world);
             hook.setItem(itemStack);
             hook.setCustomName(Text.of("hook"));
-            hook.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 1.5F, 1.0F);
+            hook.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 4.5F, 1.0F);
             world.spawnEntity(hook);
-            attachEntityToPlayer(hook, player);
+            //attachEntityToPlayer(hook, player);
         //}
 
         itemStack.damage(1, player, (p) -> p.sendToolBreakStatus(hand));

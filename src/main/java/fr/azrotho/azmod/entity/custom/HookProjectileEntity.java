@@ -4,6 +4,7 @@ import fr.azrotho.azmod.entity.ModEntities;
 import fr.azrotho.azmod.item.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -39,15 +40,48 @@ public class HookProjectileEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         super.tick();
+        
         if(tick == -1) {
             return;
         }
 
+        if(this.getOwner() == null) {
+            this.discard();
+            return;
+        }
+
+        if(this.getOwner().distanceTo(this) < 3) {
+            this.discard();
+            return;
+        }
+        PlayerEntity playerEntity = (PlayerEntity) this.getOwner();
+        if(playerEntity.isSneaking()) {
+            this.discard();
+            return;
+        }
+        
+
         tick--;
 
-        // Propulser le joueur vers la tête du grappin
-        Vec3d velocityToPlayer = this.getOwner().getPos().subtract(this.getPos()).normalize().multiply(0.5);
-        this.getOwner().setVelocity(velocityToPlayer.multiply(100));
+        double dx = this.getX() - this.getOwner().getX();
+        double dy = this.getY() - this.getOwner().getY() + 1;
+        double dz = this.getZ() - this.getOwner().getZ();
+        double xzDist = (double) Math.sqrt((float) (dx * dx + dz * dz));
+
+        double theta = Math.atan2(dy, xzDist);
+        double phi = Math.atan2(dz, dx);
+
+        double xzAmount = Math.cos(theta);
+        Vec3d movement = new Vec3d(xzAmount * Math.cos(phi), Math.sin(theta), xzAmount * Math.sin(phi));
+        movement = movement.normalize();
+
+        Vec3d playerVelocity = this.getOwner().getVelocity();
+        Vec3d velocity = movement.subtract(movement.subtract(playerVelocity).multiply(0.5));
+        this.getOwner().setVelocity(velocity);
+        this.getOwner().velocityModified = true;
+        this.getOwner().fallDistance = 0;
+
+
         if(tick == 0) {
             this.discard();
         }
@@ -60,7 +94,7 @@ public class HookProjectileEntity extends ThrownItemEntity {
             this.setVelocity(0, 0, 0);
             this.setNoGravity(true);
             this.setCustomName(Text.of("hited"));
-            this.tick = 100;
+            this.tick = 200;
         }
         //this.discard();
         super.onBlockHit(blockHitResult);
