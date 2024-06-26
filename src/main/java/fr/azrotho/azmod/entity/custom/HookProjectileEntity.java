@@ -9,7 +9,6 @@ import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.network.packet.Packet;
@@ -18,6 +17,7 @@ import net.minecraft.world.World;
 public class HookProjectileEntity extends ThrownItemEntity {
 
     int tick = -1;
+    boolean hited = false;
 
     public HookProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
@@ -89,11 +89,10 @@ public class HookProjectileEntity extends ThrownItemEntity {
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        if(!this.getWorld().isClient() && !this.getCustomName().equals(Text.of("hited"))) {
+        if(!this.getWorld().isClient() && !hited) {
             //this.getOwner().teleport(blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY() + 1, blockHitResult.getBlockPos().getZ());
             this.setVelocity(0, 0, 0);
             this.setNoGravity(true);
-            this.setCustomName(Text.of("hited"));
             this.tick = 200;
         }
         //this.discard();

@@ -4,10 +4,7 @@ import fr.azrotho.azmod.AzMod;
 import fr.azrotho.azmod.item.custom.DiamondMagnetItem;
 import fr.azrotho.azmod.item.custom.EnderSwordItem;
 import fr.azrotho.azmod.item.custom.GrapplingHookItem;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -19,9 +16,6 @@ public class ModItems {
     public static final Item GRAPPLING_HOOK = registerItem("grappling_hook", new GrapplingHookItem(new Item.Settings().maxDamage(64)));
     public static final Item HOOK = registerItem("hook", new Item(new Item.Settings()));
 
-    private static void addItemsToIngredientTabItemsGroup(FabricItemGroupEntries entries) {
-        entries.add(SAPPHIRE);
-    }
 
     public static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(AzMod.MODID, name), item);
@@ -29,6 +23,5 @@ public class ModItems {
 
     public static void registerModItems() {
         AzMod.LOGGER.info("Registering AzMod items...");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientTabItemsGroup);
     }
 }

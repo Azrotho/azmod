@@ -23,7 +23,8 @@
 		]
 	},
 	"mixins": [
-		"azmod.mixins.json"
+		"azmod.mixins.json",
+		"azmod.client.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.0",

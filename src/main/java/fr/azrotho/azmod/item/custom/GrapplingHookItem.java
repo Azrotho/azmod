@@ -1,6 +1,7 @@
 package fr.azrotho.azmod.item.custom;
 
 import fr.azrotho.azmod.entity.custom.HookProjectileEntity;
+import fr.azrotho.azmod.item.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
@@ -26,7 +27,7 @@ public class GrapplingHookItem extends Item {
 
         //if (!world.isClient) {
             HookProjectileEntity hook = new HookProjectileEntity(player, world);
-            hook.setItem(itemStack);
+            hook.setItem(ModItems.HOOK.getDefaultStack());
             hook.setCustomName(Text.of("hook"));
             hook.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, 4.5F, 1.0F);
             world.spawnEntity(hook);
