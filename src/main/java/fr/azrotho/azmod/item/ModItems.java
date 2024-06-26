@@ -17,6 +17,7 @@ public class ModItems {
     public static final Item ENDER_SWORD = registerItem("ender_sword", new EnderSwordItem(ModToolMaterial.ENDER, 8, 1.6f, new Item.Settings().maxDamage(1000)));
     public static final Item DIAMOND_MAGNET = registerItem("diamond_magnet", new DiamondMagnetItem(new Item.Settings().maxDamage(500)));
     public static final Item GRAPPLING_HOOK = registerItem("grappling_hook", new GrapplingHookItem(new Item.Settings().maxDamage(64)));
+    public static final Item HOOK = registerItem("hook", new Item(new Item.Settings()));
 
     private static void addItemsToIngredientTabItemsGroup(FabricItemGroupEntries entries) {
         entries.add(SAPPHIRE);
