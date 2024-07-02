@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ceci est le mod qui a été crée à partir des idées des gens dans ma vidéo (lien pas disponible)
+Ceci est le mod qui a été crée à partir des idées des gens dans ma [vidéo](https://youtu.be/Dgb7G4li9ZU)
 
 ## Setup
 
